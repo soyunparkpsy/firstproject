@@ -132,8 +132,21 @@ mbti_movies = {
             "description": "타임머신을 탄 소년이 과거로 돌아가 벌어지는 해프닝과 시간여행의 모험.",
             "characters": "마티(마이클 J. 폭스), 브라운 박사(크리스토퍼 로이드)"
         }
+    ],
+     "ENFJ": [
+        {
+            "title": "인터스텔라 🌌",
+            "poster": "https://upload.wikimedia.org/wikipedia/en/b/bc/Interstellar_film_poster.jpg",
+            "description": "지구 자원이 고갈된 미래, 우주로 인류의 희망을 찾아 떠나는 과학자들의 이야기.",
+            "characters": "쿠퍼(매튜 맥커너히), 브랜드 박사(앤 해서웨이)"
+        },
+        {
+            "title": "소셜 딜레마 📱",
+            "poster": "https://upload.wikimedia.org/wikipedia/en/0/0e/The_Social_Dilemma.png",
+            "description": "소셜미디어의 알고리즘이 인간의 심리에 어떤 영향을 주는지를 분석한 다큐멘터리.",
+            "characters": "전직 테크 기업자들, 해설자들"
+        }
     ]
-    # 다른 MBTI도 필요하면 추가해줄게
 }
 
 selected_mbti = st.selectbox("🧭 MBTI를 선택하세요!", options=list(mbti_movies.keys()), index=0)
