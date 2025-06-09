@@ -1,4 +1,44 @@
-# Now continue to add the remaining 8 MBTI types with movie details
+import streamlit as st
+
+if "balloon_shown" not in st.session_state:
+    st.session_state.balloon_shown = False
+
+st.title("🎬 MBTI 기반 수학·과학 영화 추천기 💡")
+st.subheader("당신의 성향에 맞는 영화, 풍부하게 소개해드릴게요! 🎓🧬")
+
+mbti_movies = {
+    "INTJ": [
+        {
+            "title": "인터스텔라 🌌",
+            "poster": "https://upload.wikimedia.org/wikipedia/en/b/bc/Interstellar_film_poster.jpg",
+            "description": "지구의 자원이 고갈된 미래, 우주로 인류의 희망을 찾아 떠나는 과학자들의 이야기. 블랙홀과 시공간의 경계를 넘나드는 걸작.",
+            "characters": "쿠퍼(매튜 맥커너히), 브랜드 박사(앤 해서웨이)"
+        },
+        {
+            "title": "굿 윌 헌팅 🧠",
+            "poster": "https://upload.wikimedia.org/wikipedia/en/5/52/Good_Will_Hunting.png",
+            "description": "MIT에서 일하는 청소부 윌은 놀라운 수학적 재능을 가졌지만 마음의 상처로 세상과 벽을 쌓고 살아간다. 한 심리학자의 따뜻한 접근이 그의 삶을 바꾼다.",
+            "characters": "윌 헌팅(맷 데이먼), 숀 매과이어(로빈 윌리엄스)"
+        }
+    ],
+    # 다른 MBTI도 필요하면 추가해줄게
+}
+
+selected_mbti = st.selectbox("🧭 MBTI를 선택하세요!", options=list(mbti_movies.keys()), index=0)
+
+if selected_mbti:
+    st.success(f"💡 {selected_mbti} 유형에게 추천하는 수학·과학 명작 영화 🎥")
+
+    for movie in mbti_movies[selected_mbti]:
+        st.markdown(f"## {movie['title']}")
+        st.image(movie["poster"], width=250)
+        st.markdown(f"**📖 줄거리**: {movie['description']}")
+        st.markdown(f"**🧑‍🔬 주요 등장인물**: {movie['characters']}")
+        st.markdown("---")
+
+    if not st.session_state.balloon_shown:
+        st.balloons()
+        st.session_state.balloon_shown = True
 mbti_movies_full.update({
     "ISTJ": [
         {
