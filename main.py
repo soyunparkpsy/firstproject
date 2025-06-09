@@ -20,26 +20,7 @@ mbti_movies = {
             "description": "MIT에서 일하는 청소부 윌은 놀라운 수학적 재능을 가졌지만 마음의 상처로 세상과 벽을 쌓고 살아간다. 한 심리학자의 따뜻한 접근이 그의 삶을 바꾼다.",
             "characters": "윌 헌팅(맷 데이먼), 숀 매과이어(로빈 윌리엄스)"
         }
-    ],
-    # 다른 MBTI도 필요하면 추가해줄게
-}
-
-selected_mbti = st.selectbox("🧭 MBTI를 선택하세요!", options=list(mbti_movies.keys()), index=0)
-
-if selected_mbti:
-    st.success(f"💡 {selected_mbti} 유형에게 추천하는 수학·과학 명작 영화 🎥")
-
-    for movie in mbti_movies[selected_mbti]:
-        st.markdown(f"## {movie['title']}")
-        st.image(movie["poster"], width=250)
-        st.markdown(f"**📖 줄거리**: {movie['description']}")
-        st.markdown(f"**🧑‍🔬 주요 등장인물**: {movie['characters']}")
-        st.markdown("---")
-
-    if not st.session_state.balloon_shown:
-        st.balloons()
-        st.session_state.balloon_shown = True
-mbti_movies_full.update({
+    ], 
     "ISTJ": [
         {
             "title": "소셜 네트워크 🌐",
@@ -152,14 +133,21 @@ mbti_movies_full.update({
             "characters": "마티(마이클 J. 폭스), 브라운 박사(크리스토퍼 로이드)"
         }
     ]
-})
+    # 다른 MBTI도 필요하면 추가해줄게
+}
 
-import pandas as pd
-from IPython.display import display
+selected_mbti = st.selectbox("🧭 MBTI를 선택하세요!", options=list(mbti_movies.keys()), index=0)
 
-df_full = pd.DataFrame({
-    "MBTI": list(mbti_movies_full.keys()),
-    "추천 영화 수": [len(v) for v in mbti_movies_full.values()]
-})
+if selected_mbti:
+    st.success(f"💡 {selected_mbti} 유형에게 추천하는 수학·과학 명작 영화 🎥")
 
-display(df_full)
+    for movie in mbti_movies[selected_mbti]:
+        st.markdown(f"## {movie['title']}")
+        st.image(movie["poster"], width=250)
+        st.markdown(f"**📖 줄거리**: {movie['description']}")
+        st.markdown(f"**🧑‍🔬 주요 등장인물**: {movie['characters']}")
+        st.markdown("---")
+
+    if not st.session_state.balloon_shown:
+        st.balloons()
+        st.session_state.balloon_shown = True
